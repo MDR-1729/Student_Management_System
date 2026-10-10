@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="mdb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+
+    <script src="jquery.js"></script>
+    <script src="popper.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="mdb.js"></script>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#"> <i class="fa fa-graduation-cap"></i> Student Manager </a>
+            <ul class="navbar-nav">
+                <li class="nav-item active px-3"> <a class="nav-link" href="#"> Home <span class="sr-only">(current)</span> </a> </li>
+                <li class="nav-item px-3"> <a class="nav-link" href="#students"> Students </a> </li>
+                <li class="nav-item px-3"> <a class="nav-link" href="#courses"> Courses </a> </li>
+                <li class="nav-item px-3"> <a class="nav-link" href="#gallery"> Gallery </a> </li>
+                <li class="nav-item px-3"> <a class="nav-link" href="#contact"> Contact </a> </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div id="studentCarousel" class="carousel slide" data-ride="carousel">
+    
+        <ol class="carousel-indicators">
+            <li data-target="#studentCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#studentCarousel" data-slide-to="1"></li>
+            <li data-target="#studentCarousel" data-slide-to="2"></li>
+            <li data-target="#studentCarousel" data-slide-to="3"></li>
+        </ol>
+        
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg" class="d-block w-100" alt="Students">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Student Management System</h1>
+                    <p> Manage students, courses, attendance and academic information. </p>
+                    <button class="btn btn-primary"> Explore Students </button>
+                </div>
+            </div>
+            
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/5212329/pexels-photo-5212329.jpeg" class="d-block w-100" alt="Education">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Manage Academic Records</h1>
+                    <p> Keep student information organized and easily accessible. </p>
+                    <button class="btn btn-success"> View Records </button>
+                </div>
+            </div>
+            
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/8423049/pexels-photo-8423049.jpeg" class="d-block w-100" alt="Courses">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Course Management</h1>
+                    <p> Manage courses, subjects and academic curriculum. </p>
+                    <button class="btn btn-danger"> View Courses </button>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/5940721/pexels-photo-5940721.jpeg" class="d-block w-100" alt="Classroom">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Track Student Progress</h1>
+                    <p> Monitor attendance, marks and overall student performance. </p>
+                    <button class="btn btn-warning"> View Performance </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    $('.carousel').carousel({
+        interval: 2000
+        });
+    </script>
+    
+    <section class="bg-secondary text-white p-5">
+        <div class="container p-3">
+            <div class="row">
+                <div class="col">
+                    <h1 class="display-4"> Search Student </h1>
+                    <p> Search Student Records by using Name, ID or Course. </p>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Enter Student Name or ID">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="bg-light p-5">
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-center mt-3">
+                        <div class="card-body">
+                            <i class="fa fa-user-plus fa-4x text-primary"></i>
+                            <h2 class="card-title"> Student Registration </h2>
+                            <p class="card-text"> Register new students and maintain their personal and academic information. </p>
+                            <button class="btn btn-primary"> Register Student </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card text-center mt-3">
+                        <div class="card-body">
+                            <i class="fa fa-calendar-check-o fa-4x text-success"></i>
+                            <h2 class="card-title"> Attendance </h2>
+                            <p class="card-text"> Monitor student attendance and maintain daily attendance records. </p>
+                            <button class="btn btn-success"> Check Attendance </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card text-center mt-3">
+                        <div class="card-body">
+                            <i class="fa fa-line-chart fa-4x text-danger"></i>
+                            <h2 class="card-title"> Student Results </h2>
+                            <p class="card-text"> Manage examination marks and monitor student academic performance. </p>
+                            <button class="btn btn-danger"> View Results </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container" id="students">
+        <div class="row">
+            <div class="col text-center p-5">
+                <h1 class="display-4"> <span class="text-primary"> Student </span> Records </h1>
+                <p> View important student information from a single management dashboard. </p>
+            </div>
+        </div>
+        
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/15612563/pexels-photo-15612563.jpeg" class="card-img-top" alt="Student">
+                    <div class="card-body">
+                        <h3 class="card-title"> Rahul Kumar </h3>
+                        <p class="card-text">
+                            Student ID: ST101<br>
+                            Course: Computer Science<br>
+                            Year: Final Year
+                        </p>
+                        <button class="btn btn-primary"> View Profile </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/15612102/pexels-photo-15612102.jpeg" class="card-img-top" alt="Student">
+                    <div class="card-body">
+                        <h3 class="card-title"> Priya Sharma </h3>
+                        <p class="card-text">
+                            Student ID: ST102<br>
+                            Course: Information Technology<br>
+                            Year: Third Year
+                        </p>
+                        <button class="btn btn-primary"> View Profile </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/31623363/pexels-photo-31623363.jpeg" class="card-img-top" alt="Student">
+                    <div class="card-body">
+                        <h3 class="card-title"> Prakash Yadav </h3>
+                        <p class="card-text">
+                            Student ID: ST103<br>
+                            Course: Electronics<br>
+                            Year: Second Year
+                        </p>
+                        <button class="btn btn-primary"> View Profile </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col text-center mt-3">
+                <button class="btn btn-dark btn-lg mt-3"> <i class="fa fa-users"></i> VIEW ALL STUDENTS </button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="bg-primary text-white text-center p-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <i class="fa fa-users fa-3x"></i>
+                    <h2>1200+</h2>
+                    <p>Students</p>
+                </div>
+                
+                <div class="col-md-3">
+                    <i class="fa fa-book fa-3x"></i>
+                    <h2>35+</h2>
+                    <p>Courses</p>
+                </div>
+                
+                <div class="col-md-3">
+                    <i class="fa fa-graduation-cap fa-3x"></i>
+                    <h2>95%</h2>
+                    <p>Pass Percentage</p>
+                </div>
+                
+                <div class="col-md-3">
+                    <i class="fa fa-university fa-3x"></i>
+                    <h2>20+</h2>
+                    <p>Departments</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container" id="courses">
+        <div class="row">
+            <div class="col text-center p-5">
+                <h1 class="display-4"> <span class="text-primary"> Popular </span> Courses </h1>
+                <p> Explore courses offered by the Institution. </p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fa fa-laptop fa-4x text-primary"></i>
+                        <h3 class="card-title"> Computer Science </h3>
+                        <p> Programming, databases, web development and software engineering. </p>
+                        <button class="btn btn-primary"> View Course </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fa fa-cogs fa-4x text-success"></i>
+                        <h3 class="card-title"> Mechanical Engineering </h3>
+                        <p> Engineering design, manufacturing and mechanical systems. </p>
+                        <button class="btn btn-success"> View Course </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fa fa-bar-chart fa-4x text-warning"></i>
+                        <h3 class="card-title"> Business Administration </h3>
+                        <p> Finance, marketing, management and business strategy. </p>
+                        <button class="btn btn-warning"> View Course </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="bg-warning p-4 text-center mt-5">
+        <h1> Follow Student Manager! </h1>
+        <p class="container"> Stay updated with student activities, events, achievements and announcements. </p>
+        <i class="bi bi-facebook h1 m-3"></i>
+        <i class="bi bi-instagram h1 m-3"></i>
+        <i class="bi bi-linkedin h1 m-3"></i>
+        <i class="bi bi-youtube h1 m-3"></i>
+        <i class="bi bi-twitter h1 m-3"></i>
+    </section>
+    
+    <section class="container" id="gallery">
+        <div class="row">
+            <div class="col text-center p-5">
+                <h1 class="display-4"> <span class="text-primary"> Campus </span> Gallery </h1>
+                <p> Explore student life and campus activities. </p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3">
+                <img src="https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg" class="img-fluid m-2" style="border-radius:25px;" alt="Campus">
+            </div>
+            
+            <div class="col-md-3">
+                <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg" class="img-fluid m-2" style="border-radius:25px;" alt="Library">
+            </div>
+            
+            <div class="col-md-3">
+                <img src="https://images.pexels.com/photos/256520/pexels-photo-256520.jpeg" class="img-fluid m-2" style="border-radius:25px;" alt="Students">
+            </div>
+            
+            <div class="col-md-3">
+                <img src="https://images.pexels.com/photos/159775/library-la-trobe-study-students-159775.jpeg" class="img-fluid m-2" style="border-radius:25px;" alt="Library">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3">
+                <img src="https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg" class="img-fluid m-2" style="border-radius:25px;" alt="Education">
+            </div>
+            
+            <div class="col-md-3">
+                <img src="https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg" class="img-fluid m-2" style="border-radius:25px;" alt="Classroom">
+            </div>
+            
+            <div class="col-md-3">
+                <img src="https://images.pexels.com/photos/35526427/pexels-photo-35526427.jpeg" class="img-fluid m-2" style="border-radius:25px;" alt="College">
+            </div>
+            
+            <div class="col-md-3">
+                <img src="https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg" class="img-fluid m-2" style="border-radius:25px;" alt="Students">
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-dark text-white mt-5 p-5" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3> <i class="fa fa-graduation-cap"></i> Student Manager </h3>
+                    <p> A simple student management platform for managing student information, attendance, courses and academic performance. </p>
+                </div>
+                
+                <div class="col-md-4">
+                    <h4> Quick Links </h4>
+                    <p> <a href="#" class="text-white"> Home </a> </p>
+                    <p> <a href="#students" class="text-white"> Students </a> </p>
+                    <p> <a href="#courses" class="text-white"> Courses </a> </p>
+                    <p> <a href="#gallery" class="text-white"> Gallery </a> </p>
+                </div>
+                
+                <div class="col-md-4">
+                    <h4> Contact Us </h4>
+                    <p> <i class="fa fa-map-marker"></i> Vijayawada, Andhra Pradesh </p>
+                    <p> <i class="fa fa-phone"></i> +91 9876543210 </p>
+                    <p> <i class="fa fa-envelope"></i> studentmanager2026@example.com </p>
+                </div>
+            </div>
+            
+            <hr class="bg-white">
+            <div class="text-center">
+                <p class="mb-0"> © 2026 Student Management System. All Rights Reserved.</p> <br>
+                <p> Developed and Maintained by the MDR. </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
